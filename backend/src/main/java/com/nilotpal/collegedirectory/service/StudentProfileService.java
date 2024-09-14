@@ -2,6 +2,7 @@ package com.nilotpal.collegedirectory.service;
 
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
 import com.nilotpal.collegedirectory.model.Department;
+import com.nilotpal.collegedirectory.model.FacultyProfile;
 import com.nilotpal.collegedirectory.model.StudentProfile;
 import com.nilotpal.collegedirectory.model.User;
 import com.nilotpal.collegedirectory.repository.DepartmentRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class StudentProfileService {

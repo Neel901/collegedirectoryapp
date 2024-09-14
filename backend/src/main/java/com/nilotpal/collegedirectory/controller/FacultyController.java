@@ -1,5 +1,6 @@
 package com.nilotpal.collegedirectory.controller;
 
+import com.nilotpal.collegedirectory.dto.StudentInfoDTO;
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
 import com.nilotpal.collegedirectory.model.FacultyProfile;
 import com.nilotpal.collegedirectory.request.FacultyProfileRequest;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/faculty")
-@CrossOrigin
+@CrossOrigin(origins = "http://127.0.0.1:5500" )
 public class FacultyController {
     @Autowired
     private FacultyProfileService facultyProfileService;
@@ -36,6 +37,12 @@ public class FacultyController {
     @GetMapping
     public ResponseEntity<List<FacultyProfile>> getAllFacultyProfiles() {
         List<FacultyProfile> profiles = facultyProfileService.getAllFacultyProfiles();
+        return ResponseEntity.ok(profiles);
+    }
+
+    @GetMapping("/students/{userId}")
+    public ResponseEntity<List<StudentInfoDTO>> getAllFacultyProfiles(@PathVariable String userId) {
+        List<StudentInfoDTO> profiles = facultyProfileService.getAllStudentsUnderFaculty(userId);
         return ResponseEntity.ok(profiles);
     }
 

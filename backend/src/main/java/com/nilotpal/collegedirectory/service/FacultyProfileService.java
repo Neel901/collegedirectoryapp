@@ -1,7 +1,9 @@
 package com.nilotpal.collegedirectory.service;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import com.nilotpal.collegedirectory.dto.StudentInfoDTO;
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
 import com.nilotpal.collegedirectory.model.Department;
 import com.nilotpal.collegedirectory.model.FacultyProfile;
@@ -26,7 +28,7 @@ public class FacultyProfileService {
     private UserRepository userRepository;
 
     public FacultyProfile getFacultyProfile(Long userId) {
-        return facultyProfileRepository.findById(userId).orElseThrow(() -> new RuntimeException("Faculty not found"));
+        return facultyProfileRepository.findByUserId(String.valueOf(userId));
     }
 
     public BaseResponse saveFacultyProfile(FacultyProfileRequest request) throws CollegeDirectoryException {
@@ -56,6 +58,10 @@ public class FacultyProfileService {
 
     public List<FacultyProfile> getAllFacultyProfiles() {
         return facultyProfileRepository.findAll();
+    }
+
+    public List<StudentInfoDTO> getAllStudentsUnderFaculty(String facultyId) {
+        return facultyProfileRepository.findStudentsByFacultyDepartment(facultyId);
     }
 
     public BaseResponse updateFacultyProfile(Long userId, FacultyProfileRequest request) throws CollegeDirectoryException {
