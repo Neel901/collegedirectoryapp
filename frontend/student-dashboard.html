@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, <span id="studentName"></span></h1>
+        <img id="studentPhoto" alt="Profile Photo", height="200", width="200">
+        <p>Email: <span id="email"></span></p>
+        <p>Phone: <span id="phone"></span></p>
+
+        <div class="search-container">
+            <h2>Search other students by Name, Department or Year</h2>
+            <form id="searchForm">
+                <select id="searchType">
+                    <option value="name">Name</option>
+                    <option value="dept">Department</option>
+                    <option value="year">Year</option>
+                </select>
+                <input type="text" id="searchQuery" placeholder="Enter search term">
+                <button id="searchButton">Search</button>
+            </form>
+        </div>
+        <ul id="searchResults"></ul> 
+
+        <h3>Faculty Advisors</h3>
+        <ul id="facultyAdvisors"></ul>
+    </div>
+
+    <script src="js/student-dashboard.js"></script>
+</body>
+</html>

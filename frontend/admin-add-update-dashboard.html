@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="signup-container">
+            <h2>Manage Records</h2>
+            <form id="recordForm">
+                <label for="type">Record Type</label>
+                <select id="type">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+
+                <label for="userid">UserId</label>
+                <input type="number" id="userid" placeholder="Enter userid" required>
+
+                <label for="departmentId">Department Id</label>
+                <input type="number" id="departmentId" placeholder="Enter departmentId" required>
+
+                <label for="photo">Photo Url</label>
+                <input type="text" id="photo" placeholder="Enter photo" required>
+
+                <label for="year">Year (for student)</label>
+                <input type="number" id="year" placeholder="Enter year">
+
+                <label for="officeHours">Office Hours (for faculty)</label>
+                <input type="text" id="officeHours" placeholder="Enter office hours">
+
+                <button type="submit">Add/Update Record</button>
+                <p class="error-message" id="error-message"></p>
+                <p class="success-message" id="success-message"></p>
+            </form>
+        </div>
+    <script src="js/admin-add-update-dashboard.js"></script>
+</body>
+</html>

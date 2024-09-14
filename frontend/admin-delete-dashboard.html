@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <div class="signup-container">
+            <h2>Delete Records</h2>
+            <form id="recordForm">
+                <label for="type">Record Type</label>
+                <select id="type">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+
+                <label for="userid">UserId</label>
+                <input type="number" id="userid" placeholder="Enter userid" required>
+                <button type="submit">Delete</button>
+                <p class="error-message" id="error-message"></p>
+                <p class="success-message" id="success-message"></p>
+            </form>
+        </div>
+    <script src="js/admin-delete-dashboard.js"></script>
+</body>
+</html>
