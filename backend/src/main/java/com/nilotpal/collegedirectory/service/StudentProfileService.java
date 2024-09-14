@@ -48,7 +48,7 @@ public class StudentProfileService {
     }
 
     public void deleteStudentProfile(Long userId) {
-        studentProfileRepository.deleteById(userId);
+        studentProfileRepository.delete(String.valueOf(userId));
     }
 
     public List<StudentProfile> searchByName(String name) {

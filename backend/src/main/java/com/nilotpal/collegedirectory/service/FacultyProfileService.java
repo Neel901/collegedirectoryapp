@@ -32,7 +32,7 @@ public class FacultyProfileService {
     public BaseResponse saveFacultyProfile(FacultyProfileRequest request) throws CollegeDirectoryException {
         FacultyProfile facultyProfile = new FacultyProfile();
         facultyProfile.setPhoto(request.getPhotoUrl());
-        facultyProfile.setUserId(request.getUserId());
+        facultyProfile.setUserId(request.getFacultyId());
         facultyProfile.setOfficeHours(request.getOfficeHours());
         Optional<Department> department = departmentRepository.findById(request.getDepartmentId());
         if (department.isPresent()) {
@@ -41,7 +41,7 @@ public class FacultyProfileService {
             throw new CollegeDirectoryException("Invalid dept id");
 
         }
-        Optional<User> user = userRepository.findById(request.getUserId());
+        Optional<User> user = userRepository.findById(request.getFacultyId());
         if (user.isPresent()) {
             facultyProfile.setUser(user.get());
         } else {
@@ -60,7 +60,7 @@ public class FacultyProfileService {
     }
 
     public BaseResponse updateFacultyProfile(Long userId, FacultyProfileRequest request) throws CollegeDirectoryException {
-        request.setUserId(userId);
+        request.setFacultyId(userId);
         return saveFacultyProfile(request);
     }
 }
