@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FacultyProfileRequest {
-    private Long facultyId;
+    private Long userId;
     private String photoUrl;
     private String officeHours;
     private Long departmentId;

@@ -58,8 +58,8 @@ public class FacultyController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity<Void> deleteFacultyProfile(@PathVariable Long userId) {
+    public ResponseEntity<BaseResponse> deleteFacultyProfile(@PathVariable Long userId) {
         facultyProfileService.deleteFacultyProfile(userId);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(BaseResponse.builder().message("Deleted successfully").build());
     }
 }

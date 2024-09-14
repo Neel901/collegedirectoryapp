@@ -60,7 +60,8 @@ public class StudentController {
     }
 
     @DeleteMapping("/{userId}")
-    public void deleteStudentProfile(@PathVariable Long userId) {
+    public ResponseEntity<BaseResponse> deleteStudentProfile(@PathVariable Long userId) {
         studentProfileService.deleteStudentProfile(userId);
+        return ResponseEntity.ok(BaseResponse.builder().message("Deleted successfully").build());
     }
 }
