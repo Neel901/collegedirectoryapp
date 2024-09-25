@@ -29,7 +29,7 @@ public class StudentController {
     private StudentProfileService studentProfileService;
 
     @GetMapping("/{userId}")
-    public StudentProfile getStudentProfile(@PathVariable Long userId) {
+    public List<StudentProfile> getStudentProfile(@PathVariable Long userId) {
         return studentProfileService.getStudentProfile(userId);
     }
 

@@ -2,7 +2,6 @@ package com.nilotpal.collegedirectory.service;
 
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
 import com.nilotpal.collegedirectory.model.Department;
-import com.nilotpal.collegedirectory.model.FacultyProfile;
 import com.nilotpal.collegedirectory.model.StudentProfile;
 import com.nilotpal.collegedirectory.model.User;
 import com.nilotpal.collegedirectory.repository.DepartmentRepository;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class StudentProfileService {
@@ -27,8 +25,8 @@ public class StudentProfileService {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    public StudentProfile getStudentProfile(Long userId) {
-        return studentProfileRepository.findById(userId).orElseThrow(() -> new RuntimeException("Student not found"));
+    public List<StudentProfile> getStudentProfile(Long userId) {
+        return studentProfileRepository.findByUserId(userId);
     }
 
     public StudentProfile saveStudentProfile(StudentProfileRequest request) throws CollegeDirectoryException {

@@ -22,6 +22,9 @@ public interface StudentProfileRepository extends JpaRepository<StudentProfile, 
     @Query("SELECT p FROM StudentProfile p WHERE p.year = :year")
     List<StudentProfile> findByYear(@Param("year") String year);
 
+    @Query("SELECT p FROM StudentProfile p WHERE p.user.id = :userId")
+    List<StudentProfile> findByUserId(@Param("userId") Long userId);
+
     @Query("delete from StudentProfile p where p.user.id = :userId")
     @Modifying
     @Transactional
