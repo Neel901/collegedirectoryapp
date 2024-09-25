@@ -40,11 +40,10 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
                 window.location.href = "admin-dashboard.html";
             }
         } else {
-            console.log("Login successful")
-            errorMessage.textContent = error.message || 'Login failed. Please try again.';
+            errorMessage.textContent = errorMessage.message || 'Login failed. Please try again.';
                 }
     } catch (error) {
         console.error("Error during login:", error);
-        errorMessage.textContent = error.message || 'Login failed. Please try again.';
+        errorMessage.textContent = errorMessage.message || 'Login failed. Please try again.';
     }
 });

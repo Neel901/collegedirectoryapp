@@ -47,3 +47,6 @@ function signup() {
         errorMessage.textContent = error.message || 'Signup failed. Please try again.';
     });
 }
+function redirectToIndex() {
+    window.location.href = "index.html";
+}

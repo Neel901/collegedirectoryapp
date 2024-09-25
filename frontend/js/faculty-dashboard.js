@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const profile = await profileResponse.json();
 
     document.getElementById("facultyName").textContent = profile.user.name;
-    document.getElementById("facultyPhoto").src = profile.user.photo;
+    document.getElementById("facultyPhoto").src = profile.photo;
     document.getElementById("facultyDepartment").textContent = profile.department.name;
     document.getElementById("facultyOfficeHours").textContent = profile.officeHours;
 

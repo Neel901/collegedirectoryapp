@@ -1,9 +1,9 @@
 package com.nilotpal.collegedirectory.service;
 
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
-import com.nilotpal.collegedirectory.request.LoginRequest;
 import com.nilotpal.collegedirectory.model.User;
 import com.nilotpal.collegedirectory.repository.UserRepository;
+import com.nilotpal.collegedirectory.request.LoginRequest;
 import com.nilotpal.collegedirectory.request.SignupRequest;
 import com.nilotpal.collegedirectory.response.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserService(UserRepository userRepository) {
