@@ -6,9 +6,11 @@ import com.nilotpal.collegedirectory.repository.UserRepository;
 import com.nilotpal.collegedirectory.request.LoginRequest;
 import com.nilotpal.collegedirectory.request.SignupRequest;
 import com.nilotpal.collegedirectory.response.BaseResponse;
+import com.nilotpal.collegedirectory.response.UserDetailResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,13 +37,38 @@ public class UserService {
         return BaseResponse.builder().message("User signed up successfully").build();
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+    public UserDetailResponse getUserById(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        UserDetailResponse userDetailResponse = UserDetailResponse.builder().build();
+        if (user !=null ) {
+            userDetailResponse = UserDetailResponse.builder()
+                    .id(user.getId())
+                    .name(user.getName())
+                    .username(user.getUsername())
+                    .phone(user.getPhone())
+                    .email(user.getEmail())
+                    .role(user.getRole())
+                    .build();
+        }
+        return userDetailResponse;
     }
 
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDetailResponse> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        List<UserDetailResponse> responseList = new ArrayList<>();
+        for (User user:users) {
+            UserDetailResponse userDetailResponse = UserDetailResponse.builder()
+                    .id(user.getId())
+                    .name(user.getName())
+                    .username(user.getUsername())
+                    .phone(user.getPhone())
+                    .email(user.getEmail())
+                    .role(user.getRole())
+                    .build();
+            responseList.add(userDetailResponse);
+        }
+        return  responseList;
     }
 
     public User updateUser(Long id, User userDetails) {

@@ -1,10 +1,11 @@
 package com.nilotpal.collegedirectory.controller;
 
 import com.nilotpal.collegedirectory.exception.CollegeDirectoryException;
-import com.nilotpal.collegedirectory.request.LoginRequest;
 import com.nilotpal.collegedirectory.model.User;
+import com.nilotpal.collegedirectory.request.LoginRequest;
 import com.nilotpal.collegedirectory.request.SignupRequest;
 import com.nilotpal.collegedirectory.response.BaseResponse;
+import com.nilotpal.collegedirectory.response.UserDetailResponse;
 import com.nilotpal.collegedirectory.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ import java.util.List;
 @RequestMapping
 @CrossOrigin
 public class UserController {
+
     @Autowired
     private UserService userService;
 
@@ -42,12 +44,12 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+    public ResponseEntity<UserDetailResponse> getUserById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<UserDetailResponse>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
