@@ -24,11 +24,8 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
             console.log(data.userId)
             localStorage.setItem('userId', data.userId);
             successMessage.textContent = "Login Successful.";
-            // Redirect based on role
             if (role === "STUDENT") {
                 console.log("Login successful Student")
-                // window.location.replace("/student-dashboard.html")
-                // window.location.assign("student-dashboard.html")
                 window.location.href = "student-dashboard.html";
             } else if (role === "FACULTY_MEMBER") {
                 console.log("Login successful")

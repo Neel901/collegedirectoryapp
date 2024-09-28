@@ -1,9 +1,12 @@
-/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Admin Dashboard Styling */
@@ -97,17 +100,19 @@ body.login, body.signup {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
 }
 
 /* Login Form */
-.login-container {
+.login-container, .signup-container {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 400px; 
     text-align: center;
 }
 
@@ -115,6 +120,7 @@ input, select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
+    box-sizing: border-box; 
 }
 
 button {
@@ -155,7 +161,8 @@ button:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .signup-container h2 {
@@ -196,4 +203,12 @@ button:hover {
 
 .btn-signup:hover {
     background-color: #218838;
+}
+
+/* Responsive Form Design */
+@media (max-width: 768px) {
+    .login-container, .signup-container {
+        width: 100%;
+        max-width: 300px; 
+    }
 }
